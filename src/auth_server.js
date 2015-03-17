@@ -1,7 +1,7 @@
 /* Setup config */
 var config = {
-	port: 80,
-	platform: 'youwillneverknow',
+  port: 80,
+  poweredBy: 'passion',
 };
 
 /* Load dependencies */
@@ -19,11 +19,11 @@ var md5 = function(data) {
 app.use(express.logger());
 
 app.use(function(request, response, next) {
-  response.setHeader('X-Powered-By', config.platform);
+  response.setHeader('X-Powered-By', config.poweredBy);
   next();
 });
 
-/* Authneticaton script */
+/* Authentication script */
 app.get('/misc.php', function(request, response) {
   try {
     var name = request.query.name;
