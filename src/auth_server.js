@@ -8,6 +8,7 @@ var config = {
 var express = require('express');
 var assert = require('assert');
 var crypto = require('crypto');
+var logger = require('morgan');
 var app = express();
 
 /* Setup methods */
@@ -16,7 +17,7 @@ var md5 = function(data) {
 };
 
 /* Setup app */
-app.use(express.logger());
+app.use(logger());
 
 app.use(function(request, response, next) {
   response.setHeader('X-Powered-By', config.poweredBy);
